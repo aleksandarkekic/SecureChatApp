@@ -1,0 +1,57 @@
+version: '3.12'
+
+services:
+  rabbitmq1:
+    image: "rabbitmq:3.12-management"
+    container_name: "rabbitmq1"
+    hostname: "rabbitmq1-host"
+    ports:
+      - 5671:5672
+      - "15671:15672"
+    environment:
+       RABBITMQ_DEFAULT_USER: user1
+       RABBITMQ_DEFAULT_PASS: pass1
+    networks:
+      - rabbitmq-network
+
+  rabbitmq2:
+    image: "rabbitmq:3.12-management"
+    container_name: "rabbitmq2"
+    hostname: "rabbitmq2-host"
+    ports:
+      - 5672:5672
+      - "15672:15672"
+    environment:
+       RABBITMQ_DEFAULT_USER: user2
+       RABBITMQ_DEFAULT_PASS: pass2
+    networks:
+      - rabbitmq-network
+
+  rabbitmq3:
+    image: "rabbitmq:3.12-management"
+    container_name: "rabbitmq3"
+    hostname: "rabbitmq3-host"
+    ports:
+      - 5673:5672
+      - "15673:15672"
+    environment:
+       RABBITMQ_DEFAULT_USER: user3
+       RABBITMQ_DEFAULT_PASS: pass3
+    networks:
+      - rabbitmq-network
+
+  rabbitmq4:
+    image: "rabbitmq:3.12-management"
+    container_name: "rabbitmq4"
+    hostname: "rabbitmq4-host"
+    ports:
+      - 5674:5672
+      - "15674:15672"
+    environment:
+       RABBITMQ_DEFAULT_USER: user4
+       RABBITMQ_DEFAULT_PASS: pass4
+    networks:
+      - rabbitmq-network
+
+networks:
+  rabbitmq-network:
